@@ -56,3 +56,11 @@
     border-radius: 6px;
     padding: 10px 0px;
 }
+
+.mime-img {
+    text-align: center;
+}
+
+.mime-img > img {
+    width: 50vw;
+}
