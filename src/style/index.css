@@ -6,7 +6,7 @@
     color: white;
     padding: 15px;
     gap:20px;
-    
+    height: 10vh;
 }
 
 .header > img {
@@ -15,12 +15,44 @@
 }
 
 .header > h1 {
-    font-size: 30px;
+    font-size: 1.875rem;
     margin-right: auto;
     font-family: 'Inter', sans-serif;
 }
 
-.header > p {
-    font-size: 20px;
+.header > p, .form__container > label, .form > button {
+    font-size: 1.25rem;
     font-family: 'Karla', sans-serif;
+    text-align: center;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+.form__container {
+    display: grid;
+    width: 80%;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 30px;
+    row-gap: 10px;
+    margin: 20px;
+}
+
+.form__container > input {
+    height: 4vh;
+    border-radius: 6px;
+}
+
+.form > button {
+    width: 80%;
+    background: linear-gradient(90deg, #672280 1.18%, #A626D3 100%);
+    color: white;
+    height: 7vh;
+    border-radius: 6px;
+    padding: 10px 0px;
 }
