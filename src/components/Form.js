@@ -8,21 +8,31 @@ export default function Form() {
 		img: '',
 	});
 
-	function getMimeData() {
-		const [topContent, bottomContent] = document.querySelectorAll('input');
+	function getMime() {
 		const random = parseInt(Math.random() * 100);
 		const img = memes.data.memes[random].url;
+		return img;
+	}
 
-		setMime({
-			top: topContent.value,
-			bottom: bottomContent.value,
-			img: img,
-		});
+	function handler(e) {
+		const { name, value } = e.target;
+		setMime((prevData) => ({
+			...prevData,
+			[name]: value,
+		}));
+	}
+
+	function submitForm(e) {
+		e.preventDefault();
+		setMime((prevData) => ({
+			...prevData,
+			img: getMime(),
+		}));
 	}
 
 	return (
 		<main>
-			<form className='form' action=''>
+			<form onSubmit={submitForm} className='form'>
 				<div className='form__container'>
 					<label htmlFor='top'>Top Meme Text</label>
 					<label htmlFor='bottom'>Bottom Meme Text</label>
@@ -31,27 +41,25 @@ export default function Form() {
 						name='top'
 						id='form__input-top'
 						placeholder='Enter text...'
+						value={mime.top}
+						onChange={handler}
 					/>
 					<input
 						type='text'
 						name='bottom'
 						id='form__input-bottom'
 						placeholder='Enter text...'
+						value={mime.bottom}
+						onChange={handler}
 					/>
 				</div>
 
-				<button
-					onClick={(e) => {
-						e.preventDefault();
-						getMimeData();
-					}}
-					type='submit'
-				>
-					Get a new meme image 🖼
-				</button>
+				<button type='submit'>Get a new meme image 🖼</button>
 			</form>
 			<div className='mime-img'>
 				<img src={mime.img} alt='' />
+				<h2 className="mime-img__top">{mime.top}</h2>
+				<h2 className="mime-img__bottom">{mime.bottom}</h2>
 			</div>
 		</main>
 	);
