@@ -59,8 +59,43 @@
 
 .mime-img {
     text-align: center;
+    position: relative;
 }
 
 .mime-img > img {
-    width: 50vw;
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.mime-img__top, .mime-img__bottom {
+    position: absolute;
+    width: 80%;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 15px 0;
+    padding: 0 5px;
+    font-family: 'Karla', sans-serif;
+    font-size: 2em;
+    text-transform: uppercase;
+    color: white;
+    letter-spacing: 1px;
+    text-shadow:
+        2px 2px 0 #000,
+        -2px -2px 0 #000,
+        2px -2px 0 #000,
+        -2px 2px 0 #000,
+        0 2px 0 #000,
+        2px 0 0 #000,
+        0 -2px 0 #000,
+        -2px 0 0 #000,
+        2px 2px 5px #000;
+}
+
+.mime-img__bottom {
+    bottom: 0;
+}
+
+.mime-img__top {
+    top: 0;
 }
