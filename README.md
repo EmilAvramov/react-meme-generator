@@ -2,7 +2,7 @@
 ## Part of a Scrimba course project
 ## Link: https://another-meme-gen.web.app/
 ## Demo:
-![image](https://giphy.com/gifs/iw4yO39UMtGBAjGdRV)
+![](https://github.com/EmilAvramov/react-meme-generator/demo.gif)
 
 ### This is mostly a starter react project which I used to practice some of the basics of React and Firebase. The app uses only 2 simple components, some instances of useState and useEffect and is overall fairly simple. The endgoal is to have a functional live-hosted meme generator.
 
