@@ -1,18 +1,18 @@
-import { useState } from 'react';
-import { memes } from '../memesData';
+import { useState, useEffect } from 'react';
+import getRequest from './../services/api';
 
 export default function Form() {
+	const [data, setData] = useState([]);
+
+	useEffect(() => {
+		getRequest().then((res) => setData(res.data.memes));
+	}, []);
+
 	const [mime, setMime] = useState({
 		top: '',
 		bottom: '',
 		img: '',
 	});
-
-	function getMime() {
-		const random = parseInt(Math.random() * 100);
-		const img = memes.data.memes[random].url;
-		return img;
-	}
 
 	function handler(e) {
 		const { name, value } = e.target;
@@ -24,9 +24,11 @@ export default function Form() {
 
 	function submitForm(e) {
 		e.preventDefault();
+		const random = parseInt(Math.random() * 100);
+		const img = data[random].url;
 		setMime((prevData) => ({
 			...prevData,
-			img: getMime(),
+			img: img,
 		}));
 	}
 
@@ -58,8 +60,8 @@ export default function Form() {
 			</form>
 			<div className='mime-img'>
 				<img src={mime.img} alt='' />
-				<h2 className="mime-img__top">{mime.top}</h2>
-				<h2 className="mime-img__bottom">{mime.bottom}</h2>
+				<h2 className='mime-img__top'>{mime.top}</h2>
+				<h2 className='mime-img__bottom'>{mime.bottom}</h2>
 			</div>
 		</main>
 	);
