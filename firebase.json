@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "another-meme-gen",
     "public": "build",
     "ignore": [
       "firebase.json",
